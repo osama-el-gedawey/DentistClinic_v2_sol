@@ -1,0 +1,169 @@
+﻿@model IEnumerable<ContactMsg>
+@{
+	ViewData["Title"] = "Messages";
+}
+
+@section Styles {
+	<link rel="stylesheet" href="~/assets/Plugins/datatables/datatables.bundle.css" />
+}
+
+<div class="bg-light-primary border border-primary border-3 border-dashed d-flex justify-content-between rounded w-100 p-5 mb-10">
+	<div class="d-flex align-items-center">
+		<div class="symbol symbol-40px me-4">
+			<div class="symbol-label fs-2 fw-semibold">
+				<!--begin::Svg Icon | path: icons/duotune/general/gen002.svg-->
+				<span class="svg-icon svg-icon-2 svg-icon-primary">
+					<svg width="24" height="24" viewBox="0 0 576 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M48 0C21.5 0 0 21.5 0 48V256H144c8.8 0 16 7.2 16 16s-7.2 16-16 16H0v64H144c8.8 0 16 7.2 16 16s-7.2 16-16 16H0v80c0 26.5 21.5 48 48 48H265.9c-6.3-10.2-9.9-22.2-9.9-35.1c0-46.9 25.8-87.8 64-109.2V271.8 48c0-26.5-21.5-48-48-48H48zM152 64h16c8.8 0 16 7.2 16 16v24h24c8.8 0 16 7.2 16 16v16c0 8.8-7.2 16-16 16H184v24c0 8.8-7.2 16-16 16H152c-8.8 0-16-7.2-16-16V152H112c-8.8 0-16-7.2-16-16V120c0-8.8 7.2-16 16-16h24V80c0-8.8 7.2-16 16-16zM512 272a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM288 477.1c0 19.3 15.6 34.9 34.9 34.9H541.1c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1H381.1c-51.4 0-93.1 41.7-93.1 93.1z" fill="currentColor" />
+					</svg>
+				</span>
+				<!--end::Svg Icon-->
+			</div>
+		</div>
+		<!--begin::Content-->
+		<div class="d-flex flex-column pe-0 pe-sm-10">
+			<h5 class="mb-1">Messages</h5>
+		</div>
+		<!--end::Content-->
+	</div>
+	
+</div>
+<div class="card shadow-sm">
+	<!--Begin Card::Header-->
+	<div class="card-header">
+		<partial name="_DatatableCardHeader" />
+		<div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+			<!--begin::Export dropdown-->
+			<button type="button" class="btn btn-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+				<i class="ki-duotone ki-exit-down fs-2"><span class="path1"></span><span class="path2"></span></i>
+				Export Report
+			</button>
+			<!--begin::Menu-->
+			<div id="kt_datatable_example_export_menu" class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-200px py-4" data-kt-menu="true">
+				<!--begin::Menu item-->
+				<div class="menu-item px-3">
+					<a href="#" class="menu-link px-3" data-kt-export="copy">
+						Copy to clipboard
+					</a>
+				</div>
+				<!--end::Menu item-->
+				<!--begin::Menu item-->
+				<div class="menu-item px-3">
+					<a href="#" class="menu-link px-3" data-kt-export="excel">
+						Export as Excel
+					</a>
+				</div>
+				<!--end::Menu item-->
+				<!--begin::Menu item-->
+				<div class="menu-item px-3">
+					<a href="#" class="menu-link px-3" data-kt-export="csv">
+						Export as CSV
+					</a>
+				</div>
+				<!--end::Menu item-->
+				<!--begin::Menu item-->
+				<div class="menu-item px-3">
+					<a href="#" class="menu-link px-3" data-kt-export="pdf">
+						Export as PDF
+					</a>
+				</div>
+				<!--end::Menu item-->
+			</div>
+			<!--end::Menu-->
+			<!--end::Export dropdown-->
+			<!--begin::Hide default export buttons-->
+			<div id="kt_datatable_example_buttons" class="d-none"></div>
+		</div>
+	</div>
+	<!--End Card::Header-->
+	<div class="card-body pt-0">
+		<div class="table-responsive">
+			<table id="kt_datatable_zero_configuration" class="js-datatables table table-row-dashed table-row-gray-300 gy-3 align-middle">
+				<thead>
+					<tr class="fw-bold fs-6 text-gray-800">
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Message</th>
+						<th>Status</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					@if (Model.Count() == 0)
+					{
+						<tr> <td colspan="7" class="text-center">There is no Messages</td></tr>
+					}
+					else
+					{
+						foreach (var item in Model)
+						{
+							<tr>
+								<td>@item.Id</td>
+								<td>@item.Name</td>
+								<td>@item.Email</td>
+								<td>@item.Phone</td>
+								<td>@item.Message</td>
+								@if (item.IsConfirmed)
+								{
+									<td>
+										<span class=" js-status badge badge-light-success me-auto">
+											Confirmed
+										</span>
+									</td>
+								}
+								else
+								{
+									<td>
+										<span class=" js-status badge badge-light-danger me-auto">
+											Not-Confirmed
+										</span>
+									</td>
+								}
+								<td>
+									<a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+										Actions
+										<span class="svg-icon svg-icon-muted svg-icon-5">
+											<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+											</svg>
+										</span>
+									</a>
+									<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true" style="">
+										<div class="menu-item px-3">
+											<a asp-action="Confirm" asp-route-id="@item.Id" class="menu-link px-3">
+												Confirm
+											</a>
+										</div>
+										<div class="menu-item px-3">
+											<a asp-action="Delete" asp-route-id="@item.Id"
+											   onclick="return confirm('Are you sure you want to delete this Message?')" class="menu-link px-3">
+												Delete
+											</a>
+										</div>
+										<div class="menu-item px-3">
+											<a asp-action="UnConfirm" asp-route-id="@item.Id" class="menu-link px-3 ">
+												Toggle Status
+											</a>
+										</div>
+									</div>
+								</td>
+							</tr>
+						}
+					}
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+	<!--End Card::Body-->
+</div>
+
+@section Scripts {
+	<script src="~/assets/Plugins/datatables/datatables.bundle.js"></script>
+
+}
+
+
+
