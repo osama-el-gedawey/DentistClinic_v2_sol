@@ -7,6 +7,7 @@
 		public string Email { get; set; } = null!; 
 		public string Phone { get; set; } = null!;
 		public string Message { get; set; } = null!;
+		public bool IsConfirmed { get; set; }=false;
 
 	}
 }
