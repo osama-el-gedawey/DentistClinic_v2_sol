@@ -1,0 +1,13 @@
+﻿@page
+@model AccessDeniedModel
+@{
+    ViewData["Title"] = "Access denied";
+    Layout = "/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="error-box">
+    <img class="img-fluid" src="~/images/dashboard/401.svg" alt="Logo" width="300">
+    <h3>Sorry Access is Denied</h3>
+    <p>You do not have permission to view this resource</p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary go-home">Go to Home</a>
+</div>

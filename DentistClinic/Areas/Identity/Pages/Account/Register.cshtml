@@ -1,0 +1,123 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "/Views/Shared/_AthuntecationLayout.cshtml";
+}
+
+<div class="main-wrapper login-body">
+    <div class="container-fluid px-0">
+        <div class="row">
+            <div class="col-lg-2 login-wrap">
+                <div class="login-sec">
+                    <div class="log-img">
+                        <img class="img-fluid" src="~/images/register/login-02.png" alt="Logo">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 login-wrap-bg">
+                <div class="login-wrapper">
+                    <div class="loginbox">
+                        <div class="login-right">
+                            <div class="login-right-wrap">
+                                <div class="account-logo">
+                                    <a href="index.html"><img src="~/images/register/login-logo.png" alt></a>
+                                </div>
+                                <h2>Getting Started</h2>
+                                <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.FirstName" class="required"></label>
+                                                <input asp-for="Input.FirstName" class="form-control">
+                                                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.LastName" class="required"></label>
+                                                <input asp-for="Input.LastName" class="form-control">
+                                                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.Email" class="required"></label>
+                                                <input asp-for="Input.Email" class="form-control">
+                                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.PhoneNumber" class="required"></label>
+                                                <input asp-for="Input.PhoneNumber" class="form-control">
+                                                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.Password" class="required"></label>
+                                                <input asp-for="Input.Password" class="form-control">
+                                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.ConfirmPassword" class="required"></label>
+                                                <input asp-for="Input.ConfirmPassword" class="form-control">
+                                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.Birthdate" class="required"></label>
+                                                <input asp-for="Input.Birthdate" class="form-control enable patient-birthdate" placeholder="birthdate" style="background-color:#fff">
+                                                <span asp-validation-for="Input.Birthdate" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label class="required" asp-for="Input.Gender"></label>
+                                                <select class="form-control select" asp-for="Input.Gender">
+                                                    <option value="">Select Gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
+                                                <span asp-validation-for="Input.Gender" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.Address" class="required"></label>
+                                                <input asp-for="Input.Address" class="form-control">
+                                                <span asp-validation-for="Input.Address" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="input-block local-forms">
+                                                <label asp-for="Input.Occuopation" class="required"></label>
+                                                <input asp-for="Input.Occuopation" class="form-control">
+                                                <span asp-validation-for="Input.Occuopation" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="input-block login-btn">
+                                        <button class="btn btn-primary btn-block" type="submit">Sign up</button>
+                                    </div>
+                                </form>
+                                <div class="next-sign d-flex justify-content-center">
+                                    <p class="account-subtitle text-center">Already have account? <a asp-page="/Account/Login">Login</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/Register.js"></script>
+}

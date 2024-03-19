@@ -1,0 +1,83 @@
+﻿ <!-- Topbar Start -->
+<div class="container-fluid bg-light ps-5 pe-0 d-none d-lg-block">
+    <div class="row gx-0">
+        <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
+            <div class="d-inline-flex align-items-center">
+                <small class="py-2"><i class="far fa-clock text-primary me-2"></i>Opening Hours: Mon - Tues : 6.00 am - 10.00 pm, Sunday :8.00 am - 5.00 pm </small>
+            </div>
+        </div>
+        <div class="col-md-6 text-center text-lg-end">
+            <div class="position-relative d-inline-flex align-items-center bg-primary text-white top-shape px-5">
+                <div class="me-3 pe-3 border-end py-2">
+                    <p class="m-0"><i class="fa fa-envelope-open me-2"></i>dentCare@example.com</p>
+                </div>
+                <div class="py-2">
+                    <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+<!-- Navbar Start -->
+<nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0 rounded">
+    <a href="index.html" class="navbar-brand p-0">
+        <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>DentCare</h1>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto py-0">
+            <div class="nav-link-holder">
+                <a asp-controller="Home" asp-action="Index"
+                   aria-current="page" class="nav-link w-inline-block w--current">
+                    <div>Home</div>
+                    <div class="link-background"></div>
+                </a>
+            </div>
+            <div class="nav-link-holder">
+                <a asp-controller="Home" asp-action="About"
+                   aria-current="page" class="nav-link w-inline-block ">
+                    <div>About</div>
+                    <div class="link-background"></div>
+                </a>
+            </div>
+            <div class="nav-link-holder">
+                <a asp-controller="Home" asp-action="Services"
+                   aria-current="page" class="nav-link w-inline-block ">
+                    <div>Services</div>
+                    <div class="link-background"></div>
+                </a>
+            </div>
+            <div class="nav-link-holder">
+                <a asp-controller="Home" asp-action="Contact"
+                   class="nav-link w-inline-block">
+                    <div>Contact</div>
+                    <div class="link-background"></div>
+                </a>
+            </div>
+            <div class="nav-link-holder">
+                <a href="/services"
+                   class="nav-link w-inline-block">
+                    <div>Appointment Booking</div>
+                    <div class="link-background"></div>
+                </a>
+            </div>
+            <div class="nav-link-holder">
+                <a asp-area="Identity" asp-page="/Account/Register"
+                   class="nav-link w-inline-block">
+                    <div>Register</div>
+                    <div class="link-background"></div>
+                </a>
+            </div>
+            <div class="nav-link-holder">
+                <a asp-area="Identity" asp-page="/Account/Login"
+                   class="nav-link w-inline-block">
+                    <div>Login</div>
+                    <div class="link-background"></div>
+                </a>
+            </div>
+        </div>
+</nav>
+<!-- Navbar End -->
